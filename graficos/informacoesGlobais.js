@@ -1,20 +1,21 @@
-const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/dados-globais.json'
+const url='https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/trabalho/trabalho-dados-gerais.json'
 
 async function vizualizarInformacoesGlobais() {
     const res = await fetch(url)
     const dados = await res.json()
-    const pessoasConectadas = (dados.total_pessoas_conectadas / 1e9)
-    const pessoasNoMundo = (dados.total_pessoas_mundo / 1e9)
-    const horas = parseInt(dados.tempo_medio)
-    const minutos = Math.round((dados.tempo_medio - horas) * 100)
-    const porcentagemConectada = ((pessoasConectadas / pessoasNoMundo ) * 100).toFixed(2)
+
+    const pessoasMundo = (dados.total_pessoas_mundo / 1e9).toFixed(1);
+    const pessoasEmpregadas = (dados.total_pessoas_empregadas / 1e9)
+    const taxaDesemprego = (dados.taxa_de_desemprego * 100)
+    const horas = parseInt(dados.tempo_medio_trabalho_por_semana)
+    const minutos = Math.round((dados.tempo_medio_trabalho_por_semana - horas) * 60)
 
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
-    paragrafo.innerHTML = `Você sabia que o mundo tem <span>${pessoasNoMundo} bilhões</span> de pessoas e que aproximadamente <span>${pessoasConectadas} bilhões</span> estão conectadas em alguma rede social e passam em média <span>${horas} horas</span> e <span>${minutos} minutos</span> conectadas.<br>Isso significa que aproximadamente <span>${porcentagemConectada}%</span> de pessoas estão conectadas em alguma rede social.`
-
+    paragrafo.innerHTML = `Você sabia que o mundo tem <span>${pessoasMundo}</span> bilhões de pessoas e que aproximadamente <span>${pessoasEmpregadas}</span> bilhões estão
+    empregadas, sendo a taxa de desemprego de <span>${taxaDesemprego}</span> %. Por fim, por semana, trabalham em média <span>${horas}</span> horas e <span>${minutos}</span> minutos.`
     const container = document.getElementById('graficos-container')
-    container.appendChild(paragrafo)
+    container.appendChild(paragrafo);
 }
 
 vizualizarInformacoesGlobais()

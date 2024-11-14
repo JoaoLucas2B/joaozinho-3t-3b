@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
 
 :root {
-    --bg-color: #000000;
-    --primary-color: #ffffff;
-    --secondary-color: #fd0000;
-    --font: "Nunito Sans", sans-serif;
+  --bg-color: #6F4E37;
+  --primary-color: #ECB176;
+  --secundary-color: #ffffff;
+  --font: Gluten;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
     margin: 0;
 }
 
-header {
+  header {
     background-color: var(--primary-color);
     text-align: center;
     padding: 1px;
@@ -46,24 +46,15 @@ nav a:hover {
     transition: transform 0.1s;
 }
 
-.graficos-container {
-    margin: 5rem;
-}
-
-.grafico {
-    margin-top: 3rem;
-}
-
 .graficos-container__texto {
     font-size: 1.3rem;
     text-align: center;
     padding: 2rem;
-    border: var(--secondary-color) solid 2px;
+    border: var(--secundary-color) solid 2px;
 }
 
-span {
-    font-weight: bold;
-    color: var(--secondary-color);
+#graficos-container {
+    margin: 5rem;
 }
 
 footer {
@@ -75,4 +66,9 @@ footer {
     width: 100%;
     height: 3rem;
     margin-top: 2rem;
+}
+
+span{
+    font-weight: bold;
+    color: var(--secundary-color);
 }
