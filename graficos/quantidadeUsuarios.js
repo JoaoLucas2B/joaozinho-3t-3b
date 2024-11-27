@@ -22,7 +22,7 @@ async function quantidadeUsuariosPorRede() {
         plot_bgcolor: getCSS('--bg-color'),
         paper_bgcolor: getCSS('--bg-color'),
         title: {
-            text: 'Redes sociais com mais usuários',
+            text: 'Times de acordo com seu valor',
             x: 0,
             font: {
                 color: getCSS('--primary-color'),
@@ -33,18 +33,18 @@ async function quantidadeUsuariosPorRede() {
         xaxis: {
             tickfont: tickConfig,
             title: {
-                text: 'Nome das redes',
+                text: 'Nome dos Times',
                 font: {
-                    color: getCSS('--secondary-color')
+                    color: getCSS('--secundary-color')
                 }
             }
         },
         yaxis: {
             tickfont: tickConfig,
             title: {
-                text: 'Bilhões de usuários ativos',
+                text: 'Valor (em bilhões de reais)',
                 font: {
-                    color: getCSS('--secondary-color')
+                    color: getCSS('--secundary-color')
                 }
             }
         }
