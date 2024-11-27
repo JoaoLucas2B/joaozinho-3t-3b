@@ -1,19 +1,12 @@
-const url='https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/trabalho/trabalho-dados-gerais.json'
+const url='https://raw.githubusercontent.com/pmatjayme/api/refs/heads/main/purga.json'
 
 async function vizualizarInformacoesGlobais() {
     const res = await fetch(url)
     const dados = await res.json()
 
-    const pessoasMundo = (dados.total_pessoas_mundo / 1e9).toFixed(1);
-    const pessoasEmpregadas = (dados.total_pessoas_empregadas / 1e9)
-    const taxaDesemprego = (dados.taxa_de_desemprego * 100)
-    const horas = parseInt(dados.tempo_medio_trabalho_por_semana)
-    const minutos = Math.round((dados.tempo_medio_trabalho_por_semana - horas) * 60)
-
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
-    paragrafo.innerHTML = `Você sabia que o mundo tem <span>${pessoasMundo}</span> bilhões de pessoas e que aproximadamente <span>${pessoasEmpregadas}</span> bilhões estão
-    empregadas, sendo a taxa de desemprego de <span>${taxaDesemprego}</span> %. Por fim, por semana, trabalham em média <span>${horas}</span> horas e <span>${minutos}</span> minutos.`
+    paragrafo.innerHTML = `O time mais caro do mundo é o Real Madrid com um custo de <span>${dados.Real_Madrid} bilhões de reais</span>, em segundo lugar temos o Manchester City, no valor de <span>${dados.Manchester_City} bilhões</span>, na terceira posição é o Arsenal, valendo <span>${dados.Arsenal}</span> bilhões de reais. Os dois últimos mais caros, respectivamente, são o: Chelsea e Barcelona, com <span>${dados.Chelsea} bilhões </span> e <span>${dados.Barcelona} bilhões de reais</span>.`
     const container = document.getElementById('graficos-container')
     container.appendChild(paragrafo);
 }
